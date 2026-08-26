@@ -1,0 +1,522 @@
+{
+ "_purpose": "Authoritative list of vulnerability classes for wpsentinel. Written to disk so the plan survives crashes and any agent can resume without re-deriving it.",
+ "_derived_from": "data/raw/wordfence_prevalence.json (5620 sampled records, 2023-08..2026-08)",
+ "_priority_formula": "0.6*normalised prevalence + 0.4*normalised average CVSS, x10",
+ "_generated": "2026-08-26",
+ "total_classes": 25,
+ "classes": [
+  {
+   "class_id": "WP-XSS-S",
+   "title": "Stored XSS (contributor+ and unauthenticated)",
+   "cwe": [
+    "CWE-79",
+    "CWE-80"
+   ],
+   "wordfence_types": [
+    "Stored XSS"
+   ],
+   "wordfence_count": 1786,
+   "prevalence_pct": 31.78,
+   "avg_cvss": 6.08,
+   "rationale": "Largest single class in the corpus. Contributor+ stored XSS alone is 997 records (~18% of everything).",
+   "status": "done",
+   "priority": 8.43,
+   "rank": 1,
+   "cwe_aliases": [
+    "CWE-80"
+   ]
+  },
+  {
+   "class_id": "WP-AUTHZ",
+   "title": "Missing or insufficient capability check",
+   "cwe": [
+    "CWE-862",
+    "CWE-863",
+    "CWE-284",
+    "CWE-285"
+   ],
+   "wordfence_types": [
+    "Authorization Bypass"
+   ],
+   "wordfence_count": 911,
+   "prevalence_pct": 16.21,
+   "avg_cvss": 5.07,
+   "rationale": "Second largest. The archetypal WP bug: a handler that never calls current_user_can().",
+   "status": "done",
+   "priority": 5.09,
+   "rank": 2,
+   "cwe_aliases": [
+    "CWE-284",
+    "CWE-285"
+   ]
+  },
+  {
+   "class_id": "WP-LFI",
+   "title": "Local file inclusion / RFI",
+   "cwe": [
+    "CWE-98",
+    "CWE-22"
+   ],
+   "wordfence_types": [
+    "File Inclusion"
+   ],
+   "wordfence_count": 294,
+   "prevalence_pct": 5.23,
+   "avg_cvss": 8.3,
+   "rationale": "Present.",
+   "status": "done",
+   "priority": 4.31,
+   "rank": 3
+  },
+  {
+   "class_id": "WP-XSS-R",
+   "title": "Reflected XSS",
+   "cwe": [
+    "CWE-79",
+    "CWE-80"
+   ],
+   "wordfence_types": [
+    "Reflected XSS"
+   ],
+   "wordfence_count": 521,
+   "prevalence_pct": 9.27,
+   "avg_cvss": 6.1,
+   "rationale": "Present.",
+   "status": "done",
+   "priority": 4.19,
+   "rank": 4,
+   "cwe_aliases": [
+    "CWE-80"
+   ]
+  },
+  {
+   "class_id": "WP-PRIVESC",
+   "title": "Privilege escalation",
+   "cwe": [
+    "CWE-269",
+    "CWE-266",
+    "CWE-620"
+   ],
+   "wordfence_types": [
+    "Privilege Escalation"
+   ],
+   "wordfence_count": 122,
+   "prevalence_pct": 2.17,
+   "avg_cvss": 9.03,
+   "rationale": "Highest average CVSS in the corpus (9.03).",
+   "status": "done",
+   "priority": 4.02,
+   "rank": 5,
+   "cwe_aliases": [
+    "CWE-620"
+   ]
+  },
+  {
+   "class_id": "WP-SQLI",
+   "title": "SQL injection via unprepared $wpdb queries",
+   "cwe": [
+    "CWE-89"
+   ],
+   "wordfence_types": [
+    "SQL Injection"
+   ],
+   "wordfence_count": 340,
+   "prevalence_pct": 6.05,
+   "avg_cvss": 7.15,
+   "rationale": "Highest-impact common class; $wpdb->prepare misuse has very recognizable signatures.",
+   "status": "done",
+   "priority": 4.0,
+   "rank": 6
+  },
+  {
+   "class_id": "WP-UPLOAD",
+   "title": "Arbitrary file upload to RCE",
+   "cwe": [
+    "CWE-434"
+   ],
+   "wordfence_types": [
+    "Arbitrary File Upload"
+   ],
+   "wordfence_count": 148,
+   "prevalence_pct": 2.63,
+   "avg_cvss": 8.29,
+   "rationale": "Present.",
+   "status": "done",
+   "priority": 3.81,
+   "rank": 7
+  },
+  {
+   "class_id": "WP-POI",
+   "title": "PHP object injection via unserialize",
+   "cwe": [
+    "CWE-502"
+   ],
+   "wordfence_types": [
+    "Object Injection"
+   ],
+   "wordfence_count": 144,
+   "prevalence_pct": 2.56,
+   "avg_cvss": 8.27,
+   "rationale": "Present.",
+   "status": "done",
+   "priority": 3.79,
+   "rank": 8
+  },
+  {
+   "class_id": "WP-RCE",
+   "title": "Command injection / eval / dynamic callable",
+   "cwe": [
+    "CWE-94",
+    "CWE-78",
+    "CWE-95"
+   ],
+   "wordfence_types": [
+    "Remote Code Execution"
+   ],
+   "wordfence_count": 58,
+   "prevalence_pct": 1.03,
+   "avg_cvss": 8.86,
+   "rationale": "Rare but avg CVSS 8.86; call_user_func on request data is a recurring WP idiom.",
+   "status": "done",
+   "priority": 3.74,
+   "rank": 9
+  },
+  {
+   "class_id": "WP-AUTHBYPASS",
+   "title": "Authentication bypass",
+   "cwe": [
+    "CWE-288",
+    "CWE-287",
+    "CWE-290",
+    "CWE-306",
+    "CWE-640",
+    "CWE-345"
+   ],
+   "wordfence_types": [
+    "Authentication Bypass"
+   ],
+   "wordfence_count": 45,
+   "prevalence_pct": 0.8,
+   "avg_cvss": 8.89,
+   "rationale": "avg CVSS 8.89. Social-login and OTP flows dominate recent cases.",
+   "status": "done",
+   "priority": 3.71,
+   "rank": 10,
+   "cwe_aliases": [
+    "CWE-306",
+    "CWE-640",
+    "CWE-345"
+   ]
+  },
+  {
+   "class_id": "WP-CSRF",
+   "title": "Missing/incorrect nonce verification",
+   "cwe": [
+    "CWE-352"
+   ],
+   "wordfence_types": [
+    "CSRF"
+   ],
+   "wordfence_count": 531,
+   "prevalence_pct": 9.45,
+   "avg_cvss": 4.65,
+   "rationale": "Distinct from WP-AUTHZ: nonce proves intent, capability proves permission. Needs its own rules.",
+   "status": "done",
+   "priority": 3.64,
+   "rank": 11
+  },
+  {
+   "class_id": "WP-DELETE",
+   "title": "Arbitrary file deletion",
+   "cwe": [
+    "CWE-22",
+    "CWE-73"
+   ],
+   "wordfence_types": [
+    "Arbitrary File Deletion"
+   ],
+   "wordfence_count": 42,
+   "prevalence_pct": 0.75,
+   "avg_cvss": 8.06,
+   "rationale": "Present.",
+   "status": "done",
+   "priority": 3.37,
+   "rank": 12
+  },
+  {
+   "class_id": "WP-FILEREAD",
+   "title": "Arbitrary file read / download",
+   "cwe": [
+    "CWE-22",
+    "CWE-200"
+   ],
+   "wordfence_types": [
+    "Arbitrary File Read"
+   ],
+   "wordfence_count": 43,
+   "prevalence_pct": 0.77,
+   "avg_cvss": 6.85,
+   "rationale": "Distinct from WP-LFI: the file is returned, not executed.",
+   "status": "done",
+   "priority": 2.88,
+   "rank": 13
+  },
+  {
+   "class_id": "WP-XXE",
+   "title": "XML external entity and unsafe XML parsing",
+   "cwe": [
+    "CWE-611"
+   ],
+   "wordfence_types": [
+    "XXE"
+   ],
+   "wordfence_count": 2,
+   "prevalence_pct": 0.04,
+   "avg_cvss": 7.0,
+   "rationale": "Only 2 in the Wordfence listing but NVD carries more; cheap to detect, severe when present.",
+   "status": "done",
+   "priority": 2.81,
+   "rank": 14
+  },
+  {
+   "class_id": "WP-INFO",
+   "title": "Sensitive information disclosure",
+   "cwe": [
+    "CWE-200",
+    "CWE-201",
+    "CWE-532",
+    "CWE-497",
+    "CWE-538",
+    "CWE-215"
+   ],
+   "wordfence_types": [
+    "Information Disclosure"
+   ],
+   "wordfence_count": 212,
+   "prevalence_pct": 3.77,
+   "avg_cvss": 5.22,
+   "rationale": "Often the pivot that makes another bug exploitable (leaked nonces, keys, user email).",
+   "status": "done",
+   "priority": 2.8,
+   "rank": 15,
+   "cwe_aliases": [
+    "CWE-532",
+    "CWE-497",
+    "CWE-538",
+    "CWE-215"
+   ]
+  },
+  {
+   "class_id": "WP-AJAX",
+   "title": "Unprotected admin-ajax handlers (wp_ajax_nopriv)",
+   "cwe": [
+    "CWE-862"
+   ],
+   "wordfence_types": [],
+   "wordfence_count": 0,
+   "prevalence_pct": 0.0,
+   "avg_cvss": null,
+   "rationale": "WP-specific ENTRY POINT class. wp_ajax_nopriv_ exposes a handler to the world; the detection signature is registration-site, not sink-site, so it cannot live inside WP-AUTHZ.",
+   "status": "done",
+   "priority": 2.8,
+   "rank": 16
+  },
+  {
+   "class_id": "WP-REST",
+   "title": "REST routes with weak permission_callback",
+   "cwe": [
+    "CWE-862"
+   ],
+   "wordfence_types": [],
+   "wordfence_count": 0,
+   "prevalence_pct": 0.0,
+   "avg_cvss": null,
+   "rationale": "WP-specific ENTRY POINT class. '__return_true' as permission_callback is a one-line signature that WP-AUTHZ's sink-side rules would miss entirely.",
+   "status": "done",
+   "priority": 2.8,
+   "rank": 17
+  },
+  {
+   "class_id": "WP-OPTIONS",
+   "title": "Arbitrary option/settings update leading to takeover",
+   "cwe": [
+    "CWE-862",
+    "CWE-269"
+   ],
+   "wordfence_types": [],
+   "wordfence_count": 0,
+   "prevalence_pct": 0.0,
+   "avg_cvss": null,
+   "rationale": "WP-specific: writing users_can_register + default_role, or a mail setting, converts a weak update handler into full site takeover. A named class makes the escalation explicit.",
+   "status": "done",
+   "priority": 2.8,
+   "rank": 18
+  },
+  {
+   "class_id": "WP-SECRETS",
+   "title": "Hardcoded credentials and weak randomness",
+   "cwe": [
+    "CWE-798",
+    "CWE-338",
+    "CWE-330"
+   ],
+   "wordfence_types": [],
+   "wordfence_count": 0,
+   "prevalence_pct": 0.0,
+   "avg_cvss": null,
+   "rationale": "Static-analysis-friendly and common in themes/plugins; rand() used for tokens, keys in source.",
+   "status": "done",
+   "priority": 2.8,
+   "rank": 19
+  },
+  {
+   "class_id": "WP-SSRF",
+   "title": "Server-side request forgery",
+   "cwe": [
+    "CWE-918"
+   ],
+   "wordfence_types": [
+    "SSRF"
+   ],
+   "wordfence_count": 73,
+   "prevalence_pct": 1.3,
+   "avg_cvss": 6.26,
+   "rationale": "wp_remote_get() on user-controlled URL; WP has no safe-URL helper by default.",
+   "status": "done",
+   "priority": 2.75,
+   "rank": 20
+  },
+  {
+   "class_id": "WP-XSS-DOM",
+   "title": "DOM-based XSS in plugin JS",
+   "cwe": [
+    "CWE-79"
+   ],
+   "wordfence_types": [
+    "DOM XSS"
+   ],
+   "wordfence_count": 6,
+   "prevalence_pct": 0.11,
+   "avg_cvss": 6.35,
+   "rationale": "Underreported in the corpus (6) because scanners rarely see JS; still worth rules.",
+   "status": "done",
+   "priority": 2.56,
+   "rank": 21
+  },
+  {
+   "class_id": "WP-TRAVERSAL",
+   "title": "Path traversal in file writes/moves",
+   "cwe": [
+    "CWE-22",
+    "CWE-23",
+    "CWE-35"
+   ],
+   "wordfence_types": [
+    "Directory Traversal"
+   ],
+   "wordfence_count": 29,
+   "prevalence_pct": 0.52,
+   "avg_cvss": 5.54,
+   "rationale": "Traversal that lands outside the LFI/read/delete outcomes.",
+   "status": "done",
+   "priority": 2.31,
+   "rank": 22,
+   "cwe_aliases": [
+    "CWE-35"
+   ]
+  },
+  {
+   "class_id": "WP-REDIRECT",
+   "title": "Open redirect",
+   "cwe": [
+    "CWE-601"
+   ],
+   "wordfence_types": [
+    "Open Redirect"
+   ],
+   "wordfence_count": 25,
+   "prevalence_pct": 0.44,
+   "avg_cvss": 5.56,
+   "rationale": "wp_redirect() without wp_safe_redirect(); common phishing pivot.",
+   "status": "done",
+   "priority": 2.31,
+   "rank": 23
+  },
+  {
+   "class_id": "WP-IDOR",
+   "title": "Insecure direct object reference",
+   "cwe": [
+    "CWE-639"
+   ],
+   "wordfence_types": [
+    "IDOR"
+   ],
+   "wordfence_count": 58,
+   "prevalence_pct": 1.03,
+   "avg_cvss": 4.94,
+   "rationale": "Handler authorizes the action but never checks ownership of the target id.",
+   "status": "done",
+   "priority": 2.17,
+   "rank": 24
+  },
+  {
+   "class_id": "WP-CSVINJ",
+   "title": "Formula (CSV) injection in exported data",
+   "cwe": [
+    "CWE-1236"
+   ],
+   "wordfence_types": [
+    "CSV Injection"
+   ],
+   "wordfence_count": 1,
+   "prevalence_pct": 0.02,
+   "avg_cvss": 5.5,
+   "rationale": "Added after the corpus showed CWE-1236 as the largest CWE with no class: 44 records, 35 distinct CVEs. The Wordfence listing buckets only 1 as 'CSV Injection', so its prevalence there is a naming artifact rather than a measure of rarity.",
+   "status": "done",
+   "rank": 25,
+   "priority": 0.0
+  }
+ ],
+ "_ranking_caveat": "Classes with wordfence_count 0 (WP-AJAX, WP-REST, WP-OPTIONS, WP-SECRETS) are WordPress-specific patterns that the Wordfence listing does not bucket as its own type -- they are counted inside Authorization Bypass and similar. Their prevalence here is therefore an artifact of the source taxonomy, not a measure of rarity: wp_ajax_nopriv_ and permission_callback=>__return_true are among the most common real findings in plugin code. Treat their rank as a floor, and do not drop them on the basis of this number.",
+ "_ambiguous_cwes": {
+  "CWE-200": [
+   "WP-FILEREAD",
+   "WP-INFO"
+  ],
+  "CWE-22": [
+   "WP-LFI",
+   "WP-DELETE",
+   "WP-FILEREAD",
+   "WP-TRAVERSAL"
+  ],
+  "CWE-269": [
+   "WP-PRIVESC",
+   "WP-OPTIONS"
+  ],
+  "CWE-79": [
+   "WP-XSS-S",
+   "WP-XSS-R",
+   "WP-XSS-DOM"
+  ],
+  "CWE-80": [
+   "WP-XSS-S",
+   "WP-XSS-R"
+  ],
+  "CWE-862": [
+   "WP-AUTHZ",
+   "WP-AJAX",
+   "WP-REST",
+   "WP-OPTIONS"
+  ]
+ },
+ "_attribution_note": "CWE is a COARSE attribution signal only. Several classes legitimately share a CWE (CWE-79 covers stored, reflected and DOM XSS; CWE-862 covers WP-AUTHZ, WP-AJAX and WP-REST), so a corpus count attributed by CWE alone cannot separate them and will over-count each. The detection rules in each class file are the real discriminator; treat CWE counts as an upper bound per class, never as that class's true frequency.",
+ "_known_gaps": [
+  {
+   "cwe": "CWE-20",
+   "records": 39,
+   "name": "Improper input validation",
+   "status": "intentionally unmapped",
+   "note": "Too generic to attribute to one class; it co-occurs with a more specific CWE in most records."
+  }
+ ]
+}

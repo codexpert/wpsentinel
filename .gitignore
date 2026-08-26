@@ -1,0 +1,43 @@
+# Harvested corpora are NOT redistributed.
+#
+# Two reasons, both deliberate:
+#   1. ATTRIBUTION.md commits this project to summarising Patchstack entries rather than
+#      reproducing them verbatim; the raw NDJSON is verbatim.
+#   2. README states the project records no plugin or vendor names. The class files honour
+#      that, but ~16,000 raw records carry them in their titles.
+#
+# The corpus is a build input, not a deliverable. Regenerate it with:
+#   python3 scripts/harvest_nvd.py          (resumable; NVD is rate limited)
+#   python3 scripts/harvest_patchstack.py
+#   python3 scripts/build_db.py
+#
+# data/classes.json IS committed - it is what the scanner and the skill consume, and it
+# carries only class ids, rules and CVE ids.
+data/raw/*.ndjson
+data/raw/*_checkpoint*.json
+data/raw/*.txt
+
+# data/raw/wordfence_prevalence.json IS committed: it holds only aggregate counts by
+# vulnerability type and privilege level, with no plugin or vendor names, and the
+# taxonomy's priority rationale cites it.
+!data/raw/wordfence_prevalence.json
+data/raw/*.tmp
+*.log
+
+# Built database (regenerate with scripts/build_db.py)
+data/wpsentinel.db
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp
