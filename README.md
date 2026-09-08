@@ -10,6 +10,11 @@ CVEs, then proposes fixes that use the correct WordPress APIs.
 **25 vulnerability classes · 214 detection rules · 190 verified CVEs · 36,972-record ranked
 corpus.** Knowledge base, scanner, and agent skill are all in place.
 
+## Documentation
+
+**[User guide](docs/USER-GUIDE.md)** — setup, running a scan, and how to triage what
+comes back. Start there if you want to audit your own plugin.
+
 ## Quick start
 
 ```bash
